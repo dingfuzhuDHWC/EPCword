@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE EPC</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f7fa;
+        }
+        .title {
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .buttons-container {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .content-container {
+            width: 80%;
+            max-width: 600px;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: none;
+        }
+        .content-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        .content-text {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+        .close-btn {
+            float: right;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">THE EPC</h1>
+    
+    <div class="buttons-container">
+        <button class="btn" onclick="showContent('A')">A</button>
+        <button class="btn" onclick="showContent('B')">B</button>
+        <button class="btn" onclick="showContent('C')">C</button>
+    </div>
+
+    <div id="content-A" class="content-container">
+        <span class="close-btn" onclick="hideContent('A')">¡Á</span>
+        <h2 class="content-title">A</h2>
+        <p class="content-text">A1 - This is the content for option A. You can replace this text with your actual content.</p>
+    </div>
+
+    <div id="content-B" class="content-container">
+        <span class="close-btn" onclick="hideContent('B')">¡Á</span>
+        <h2 class="content-title">B</h2>
+        <p class="content-text">B1 - This is the content for option B. You can replace this text with your actual content.</p>
+    </div>
+
+    <div id="content-C" class="content-container">
+        <span class="close-btn" onclick="hideContent('C')">¡Á</span>
+        <h2 class="content-title">C</h2>
+        <p class="content-text">C1 - This is the content for option C. You can replace this text with your actual content.</p>
+    </div>
+
+    <script>
+        function showContent(letter) {
+            // Hide all content containers first
+            document.querySelectorAll('.content-container').forEach(container => {
+                container.style.display = 'none';
+            });
+            
+            // Show the selected content
+            document.getElementById(`content-${letter}`).style.display = 'block';
+        }
+
+        function hideContent(letter) {
+            document.getElementById(`content-${letter}`).style.display = 'none';
+        }
+    </script>
+</body>
+</html>
